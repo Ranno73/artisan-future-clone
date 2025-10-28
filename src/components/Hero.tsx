@@ -12,7 +12,7 @@ const Hero = () => {
       
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Main heading */}
+          {/* Left side - Main heading with neon frame and bars */}
           <motion.div 
             className="space-y-8"
             initial={{ opacity: 0, x: -50 }}
@@ -20,69 +20,76 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <Badge 
-              className="glass-effect border-2 text-[#00ff00] font-bold tracking-wider"
+              className="glass-effect border-2 text-[hsl(var(--acid))] font-bold tracking-wider"
               style={{
-                borderColor: "#00ff00",
-                boxShadow: "0 0 20px #00ff00, inset 0 0 10px rgba(0,255,0,0.2)",
-                background: "rgba(0,255,0,0.1)",
+                borderColor: "hsl(var(--acid))",
+                boxShadow: "0 0 20px hsl(var(--acid)), inset 0 0 10px hsl(var(--acid) / 0.2)",
+                background: "hsl(var(--acid) / 0.1)",
               }}
             >
               <Sparkles className="w-4 h-4 mr-2" />
               AI POWERED VISIONARY
             </Badge>
-            
-            <motion.div
-              animate={{
-                textShadow: [
-                  "0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #ff00ff",
-                  "0 0 30px #ff00ff, 0 0 50px #ff00ff, 0 0 70px #00ffff",
-                  "0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #ff00ff",
-                ],
-              }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <h1 className="text-7xl md:text-9xl font-black leading-none tracking-tighter">
-                <span className="bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] bg-clip-text text-transparent">
-                  GIAN
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-[#ff00ff] via-[#00ffff] to-[#ff00ff] bg-clip-text text-transparent">
-                  LUCA
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] bg-clip-text text-transparent">
-                  RANNO
-                </span>
-              </h1>
-            </motion.div>
-            
+
+            {/* Neon gradient border frame */}
+            <div className="p-[3px] rounded-2xl bg-gradient-to-r from-[hsl(var(--cyan))] via-[hsl(var(--purple))] to-[hsl(var(--pink))]">
+              <div className="relative rounded-2xl px-8 py-10 bg-black/40 overflow-hidden">
+                {/* Horizontal neon bars behind text */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute left-8 right-8 top-10 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-pulse" />
+                  <div className="absolute left-8 right-8 top-28 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_2.5s_ease-in-out_infinite]" />
+                  <div className="absolute left-8 right-8 top-46 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_3s_ease-in-out_infinite]" />
+                  <div className="absolute left-8 right-8 bottom-10 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_2s_ease-in-out_infinite]" />
+                </div>
+
+                <motion.div
+                  animate={{
+                    textShadow: [
+                      "0 0 30px hsl(var(--cyan) / 0.9), 0 0 60px hsl(var(--cyan) / 0.6)",
+                      "0 0 30px hsl(var(--pink) / 0.9), 0 0 60px hsl(var(--pink) / 0.6)",
+                      "0 0 30px hsl(var(--cyan) / 0.9), 0 0 60px hsl(var(--cyan) / 0.6)",
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <h1 className="text-7xl md:text-[9rem] font-black leading-[0.9] tracking-tight">
+                    <span className="gradient-text">GIAN</span>
+                    <br />
+                    <span className="gradient-text">LUCA</span>
+                    <br />
+                    <span className="gradient-text">RANNO</span>
+                  </h1>
+                </motion.div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap gap-3">
               <Badge 
-                className="border-2 text-[#00ff00] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                className="border-2 text-[hsl(var(--cyan))] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
                 style={{
-                  borderColor: "#00ff00",
-                  boxShadow: "0 0 15px #00ff00",
-                  background: "rgba(0,255,0,0.1)",
+                  borderColor: "hsl(var(--cyan))",
+                  boxShadow: "0 0 15px hsl(var(--cyan))",
+                  background: "hsl(var(--cyan) / 0.1)",
                 }}
               >
                 IMPRENDITORE
               </Badge>
               <Badge 
-                className="border-2 text-[#ff00ff] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                className="border-2 text-[hsl(var(--purple))] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
                 style={{
-                  borderColor: "#ff00ff",
-                  boxShadow: "0 0 15px #ff00ff",
-                  background: "rgba(255,0,255,0.1)",
+                  borderColor: "hsl(var(--purple))",
+                  boxShadow: "0 0 15px hsl(var(--purple))",
+                  background: "hsl(var(--purple) / 0.1)",
                 }}
               >
                 DESIGNER
               </Badge>
               <Badge 
-                className="border-2 text-[#ff0099] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                className="border-2 text-[hsl(var(--pink))] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
                 style={{
-                  borderColor: "#ff0099",
-                  boxShadow: "0 0 15px #ff0099",
-                  background: "rgba(255,0,153,0.1)",
+                  borderColor: "hsl(var(--pink))",
+                  boxShadow: "0 0 15px hsl(var(--pink))",
+                  background: "hsl(var(--pink) / 0.1)",
                 }}
               >
                 INNOVATORE

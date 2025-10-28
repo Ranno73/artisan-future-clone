@@ -52,9 +52,9 @@ const TypingText = ({
   }, []);
 
   return (
-    <span className="font-mono text-[hsl(var(--green))]">
+    <span className="font-mono text-[hsl(var(--acid))]">
       $ {text}
-      <span className={`inline-block w-2 h-5 ml-1 bg-[hsl(var(--green))] ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
+      <span className={`inline-block w-2 h-5 ml-1 bg-[hsl(var(--acid))] ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
         |
       </span>
     </span>
