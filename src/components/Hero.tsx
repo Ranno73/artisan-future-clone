@@ -2,15 +2,13 @@ import { Badge } from "@/components/ui/badge";
 import { Sparkles, Rocket, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import TypingText from "./TypingText";
-import FloatingChip from "./FloatingChip";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Floating decorative chips */}
-      <FloatingChip color="cyan" className="top-20 left-[10%]" duration={4} />
-      <FloatingChip color="purple" className="top-40 right-[15%]" duration={3.5} delay={0.5} />
-      <FloatingChip color="pink" className="bottom-32 left-[20%]" duration={3.8} delay={1} />
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#1a0a2e] to-[#0a0a0a]">
+      {/* Aggressive background effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,255,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,0,255,0.1),transparent_50%)]" />
       
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -21,27 +19,72 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge className="glass-effect neon-border text-[hsl(var(--cyan))] neon-glow">
+            <Badge 
+              className="glass-effect border-2 text-[#00ff00] font-bold tracking-wider"
+              style={{
+                borderColor: "#00ff00",
+                boxShadow: "0 0 20px #00ff00, inset 0 0 10px rgba(0,255,0,0.2)",
+                background: "rgba(0,255,0,0.1)",
+              }}
+            >
               <Sparkles className="w-4 h-4 mr-2" />
               AI POWERED VISIONARY
             </Badge>
             
-            <h1 className="text-7xl md:text-8xl font-black leading-none">
-              <span className="gradient-text">GIAN</span>
-              <br />
-              <span className="gradient-text">LUCA</span>
-              <br />
-              <span className="gradient-text">RANNO</span>
-            </h1>
+            <motion.div
+              animate={{
+                textShadow: [
+                  "0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #ff00ff",
+                  "0 0 30px #ff00ff, 0 0 50px #ff00ff, 0 0 70px #00ffff",
+                  "0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #ff00ff",
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <h1 className="text-7xl md:text-9xl font-black leading-none tracking-tighter">
+                <span className="bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] bg-clip-text text-transparent">
+                  GIAN
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-[#ff00ff] via-[#00ffff] to-[#ff00ff] bg-clip-text text-transparent">
+                  LUCA
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] bg-clip-text text-transparent">
+                  RANNO
+                </span>
+              </h1>
+            </motion.div>
             
             <div className="flex flex-wrap gap-3">
-              <Badge variant="outline" className="border-[hsl(var(--cyan))] text-[hsl(var(--cyan))] bg-[hsl(var(--cyan)/0.1)]">
+              <Badge 
+                className="border-2 text-[#00ff00] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                style={{
+                  borderColor: "#00ff00",
+                  boxShadow: "0 0 15px #00ff00",
+                  background: "rgba(0,255,0,0.1)",
+                }}
+              >
                 IMPRENDITORE
               </Badge>
-              <Badge variant="outline" className="border-[hsl(var(--purple))] text-[hsl(var(--purple))] bg-[hsl(var(--purple)/0.1)]">
+              <Badge 
+                className="border-2 text-[#ff00ff] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                style={{
+                  borderColor: "#ff00ff",
+                  boxShadow: "0 0 15px #ff00ff",
+                  background: "rgba(255,0,255,0.1)",
+                }}
+              >
                 DESIGNER
               </Badge>
-              <Badge variant="outline" className="border-[hsl(var(--pink))] text-[hsl(var(--pink))] bg-[hsl(var(--pink)/0.1)]">
+              <Badge 
+                className="border-2 text-[#ff0099] font-bold px-4 py-2 hover:scale-110 transition-transform cursor-pointer"
+                style={{
+                  borderColor: "#ff0099",
+                  boxShadow: "0 0 15px #ff0099",
+                  background: "rgba(255,0,153,0.1)",
+                }}
+              >
                 INNOVATORE
               </Badge>
             </div>
@@ -49,18 +92,28 @@ const Hero = () => {
 
           {/* Right side - Terminal window */}
           <motion.div 
-            className="terminal-window rounded-2xl overflow-hidden"
+            className="rounded-2xl overflow-hidden"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              background: "rgba(0,0,0,0.9)",
+              border: "2px solid #00ff00",
+              boxShadow: "0 0 40px #00ff00, inset 0 0 30px rgba(0,255,0,0.1)",
+            }}
           >
-            <div className="bg-gradient-to-r from-[hsl(var(--cyan))] via-[hsl(var(--purple))] to-[hsl(var(--pink))] p-3 flex items-center gap-2">
+            <div 
+              className="p-3 flex items-center gap-2"
+              style={{
+                background: "linear-gradient(90deg, #00ffff, #ff00ff, #ff0099)",
+              }}
+            >
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
               </div>
-              <span className="text-sm font-mono text-white ml-2">AI_PROFILE.txt</span>
+              <span className="text-sm font-mono text-white ml-2 font-bold">AI_PROFILE.txt</span>
             </div>
             <div className="p-6 font-mono text-sm space-y-3 min-h-[300px]">
               <TypingText 
@@ -70,11 +123,11 @@ const Hero = () => {
                   "Artigiano del futuro",
                 ]}
               />
-              <div className="text-foreground/90 mt-4">
-                <p>Gian Luca Ranno è un imprenditore, designer e innovatore italiano.</p>
-                <p className="mt-2">Fondatore di Gnammo (2012), la prima piattaforma di social eating in Italia.</p>
-                <p className="mt-2">Il suo lavoro fonde arte, tecnologia e design per creare connessioni autentiche.</p>
-                <p className="mt-2 text-[hsl(var(--cyan))]">"Artigiano del futuro" che usa la tecnologia per valorizzare bellezza e senso nel mondo contemporaneo.</p>
+              <div className="text-gray-300 mt-4">
+                <p className="leading-relaxed">Gian Luca Ranno è un imprenditore, designer e innovatore italiano.</p>
+                <p className="mt-2 leading-relaxed">Fondatore di Gnammo (2012), la prima piattaforma di social eating in Italia.</p>
+                <p className="mt-2 leading-relaxed">Il suo lavoro fonde arte, tecnologia e design per creare connessioni autentiche.</p>
+                <p className="mt-2 text-[#00ffff] font-bold">"Artigiano del futuro" che usa la tecnologia per valorizzare bellezza e senso nel mondo contemporaneo.</p>
               </div>
             </div>
           </motion.div>
@@ -87,12 +140,26 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Badge className="glass-effect neon-border text-[hsl(var(--cyan))] neon-glow px-4 py-2">
-            <Rocket className="w-4 h-4 mr-2" />
+          <Badge 
+            className="border-2 text-[#00ffff] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
+            style={{
+              borderColor: "#00ffff",
+              boxShadow: "0 0 20px #00ffff, inset 0 0 10px rgba(0,255,255,0.2)",
+              background: "rgba(0,255,255,0.1)",
+            }}
+          >
+            <Rocket className="w-5 h-5 mr-2" />
             STARTUP BUILDER
           </Badge>
-          <Badge className="glass-effect border-[hsl(var(--pink))] text-[hsl(var(--pink))] neon-glow px-4 py-2">
-            <Palette className="w-4 h-4 mr-2" />
+          <Badge 
+            className="border-2 text-[#ff00ff] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
+            style={{
+              borderColor: "#ff00ff",
+              boxShadow: "0 0 20px #ff00ff, inset 0 0 10px rgba(255,0,255,0.2)",
+              background: "rgba(255,0,255,0.1)",
+            }}
+          >
+            <Palette className="w-5 h-5 mr-2" />
             CREATIVE MIND
           </Badge>
         </motion.div>

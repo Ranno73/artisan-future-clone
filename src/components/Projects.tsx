@@ -64,19 +64,19 @@ const Projects = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ 
-                    y: { duration: 3 + (index * 0.2), repeat: Infinity, ease: "easeInOut" },
-                    scale: { duration: 0.3 }
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: `0 0 60px ${borderColor}, inset 0 0 30px ${borderColor}40`,
                   }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Card 
-                    className="glass-effect h-full overflow-hidden group"
+                    className="glass-effect h-full overflow-hidden group cursor-pointer"
                     style={{
-                      border: `1px solid ${borderColor}`,
-                      boxShadow: glowColor,
-                      transition: "all 0.3s ease",
+                      border: `2px solid ${borderColor}`,
+                      boxShadow: `0 0 30px ${borderColor}`,
+                      transition: "all 0.2s ease",
+                      background: "rgba(0,0,0,0.8)",
                     }}
                   >
                     <CardHeader className="space-y-4">

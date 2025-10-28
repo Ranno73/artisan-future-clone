@@ -90,13 +90,25 @@ const Services = () => {
               transition={{ delay: index * 0.1 }}
             >
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 0 60px #00ffff, inset 0 0 30px rgba(0,255,255,0.3)",
+                }}
+                transition={{ duration: 0.2 }}
               >
-                <Card className="glass-effect h-full overflow-hidden relative">
+                <Card 
+                  className="glass-effect h-full overflow-hidden relative cursor-pointer"
+                  style={{
+                    background: "rgba(0,0,0,0.8)",
+                    border: "2px solid rgba(0,255,255,0.5)",
+                  }}
+                >
                   <div 
-                    className="absolute top-0 left-0 right-0 h-1"
-                    style={{ background: service.topColor }}
+                    className="absolute top-0 left-0 right-0 h-2"
+                    style={{ 
+                      background: service.topColor,
+                      boxShadow: "0 0 20px currentColor",
+                    }}
                   />
                   <CardHeader className="mt-4">
                     <div 
