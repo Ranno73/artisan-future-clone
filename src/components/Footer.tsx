@@ -7,15 +7,16 @@ const Footer = () => {
     <footer 
       className="py-16 px-4 relative overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #0a0a0a 0%, #00ff00 100%)",
+        background: "hsl(var(--acid))",
+        boxShadow: "0 -10px 40px hsl(var(--acid) / 0.5)",
       }}
     >
       {/* Neon glow effect at top */}
       <div 
         className="absolute top-0 left-0 right-0 h-1"
         style={{
-          background: "#00ff00",
-          boxShadow: "0 0 30px #00ff00, 0 0 60px #00ff00",
+          background: "hsl(var(--acid))",
+          boxShadow: "0 0 30px hsl(var(--acid)), 0 0 60px hsl(var(--acid))",
         }}
       />
 

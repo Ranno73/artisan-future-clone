@@ -31,36 +31,33 @@ const Hero = () => {
               AI POWERED VISIONARY
             </Badge>
 
-            {/* Neon gradient border frame */}
-            <div className="p-[3px] rounded-2xl bg-gradient-to-r from-[hsl(var(--cyan))] via-[hsl(var(--purple))] to-[hsl(var(--pink))]">
-              <div className="relative rounded-2xl px-8 py-10 bg-black/40 overflow-hidden">
-                {/* Horizontal neon bars behind text */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute left-8 right-8 top-10 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-pulse" />
-                  <div className="absolute left-8 right-8 top-28 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_2.5s_ease-in-out_infinite]" />
-                  <div className="absolute left-8 right-8 top-46 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_3s_ease-in-out_infinite]" />
-                  <div className="absolute left-8 right-8 bottom-10 h-8 bg-[hsl(var(--cyan))] opacity-25 blur-2xl rounded-xl animate-[pulse_2s_ease-in-out_infinite]" />
-                </div>
-
-                <motion.div
-                  animate={{
-                    textShadow: [
-                      "0 0 30px hsl(var(--cyan) / 0.9), 0 0 60px hsl(var(--cyan) / 0.6)",
-                      "0 0 30px hsl(var(--pink) / 0.9), 0 0 60px hsl(var(--pink) / 0.6)",
-                      "0 0 30px hsl(var(--cyan) / 0.9), 0 0 60px hsl(var(--cyan) / 0.6)",
-                    ],
+            {/* Each word with separate neon frame */}
+            <div className="space-y-4">
+              {["GIAN", "LUCA", "RANNO"].map((word, index) => (
+                <div 
+                  key={word}
+                  className="p-[2px] rounded-xl bg-gradient-to-r from-[hsl(var(--cyan))] via-[hsl(var(--purple))] to-[hsl(var(--pink))]"
+                  style={{
+                    boxShadow: "0 0 20px hsl(var(--cyan) / 0.4), 0 0 40px hsl(var(--purple) / 0.3)",
                   }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <h1 className="text-7xl md:text-[9rem] font-black leading-[0.9] tracking-tight">
-                    <span className="gradient-text">GIAN</span>
-                    <br />
-                    <span className="gradient-text">LUCA</span>
-                    <br />
-                    <span className="gradient-text">RANNO</span>
-                  </h1>
-                </motion.div>
-              </div>
+                  <div className="rounded-xl px-6 py-4 bg-black/60">
+                    <motion.h1 
+                      className="text-6xl md:text-8xl font-black tracking-tight gradient-text"
+                      animate={{
+                        textShadow: [
+                          "0 0 20px hsl(var(--cyan) / 0.8), 0 0 40px hsl(var(--cyan) / 0.5)",
+                          "0 0 20px hsl(var(--pink) / 0.8), 0 0 40px hsl(var(--pink) / 0.5)",
+                          "0 0 20px hsl(var(--cyan) / 0.8), 0 0 40px hsl(var(--cyan) / 0.5)",
+                        ],
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                    >
+                      {word}
+                    </motion.h1>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -122,19 +119,17 @@ const Hero = () => {
               </div>
               <span className="text-sm font-mono text-white ml-2 font-bold">AI_PROFILE.txt</span>
             </div>
-            <div className="p-6 font-mono text-sm space-y-3 min-h-[300px]">
+            <div className="p-6 font-mono text-sm min-h-[300px]">
               <TypingText 
                 phrases={[
                   "cat gian_luca_ranno.txt",
-                  "loading profile...",
-                  "Artigiano del futuro",
                 ]}
               />
-              <div className="text-gray-300 mt-4">
+              <div className="text-gray-300 mt-4 space-y-3">
                 <p className="leading-relaxed">Gian Luca Ranno è un imprenditore, designer e innovatore italiano.</p>
-                <p className="mt-2 leading-relaxed">Fondatore di Gnammo (2012), la prima piattaforma di social eating in Italia.</p>
-                <p className="mt-2 leading-relaxed">Il suo lavoro fonde arte, tecnologia e design per creare connessioni autentiche.</p>
-                <p className="mt-2 text-[#00ffff] font-bold">"Artigiano del futuro" che usa la tecnologia per valorizzare bellezza e senso nel mondo contemporaneo.</p>
+                <p className="leading-relaxed">Fondatore di Gnammo (2012), la prima piattaforma di social eating in Italia.</p>
+                <p className="leading-relaxed">Il suo lavoro fonde arte, tecnologia e design per creare connessioni autentiche.</p>
+                <p className="text-[hsl(var(--acid))] font-bold">"Artigiano del futuro" che usa la tecnologia per valorizzare bellezza e senso nel mondo contemporaneo.</p>
               </div>
             </div>
           </motion.div>
