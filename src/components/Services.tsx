@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, Rocket, Lightbulb, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
@@ -14,7 +15,8 @@ const Services = () => {
         "Struttura del pitch perfetto",
         "Public speaking efficace",
         "Presentazioni memorabili"
-      ]
+      ],
+      topColor: "linear-gradient(90deg, hsl(var(--purple)), hsl(var(--pink)))"
     },
     {
       icon: Rocket,
@@ -26,7 +28,8 @@ const Services = () => {
         "Business model design",
         "Strategia go-to-market",
         "Fundraising & pitch deck"
-      ]
+      ],
+      topColor: "linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--purple)))"
     },
     {
       icon: Lightbulb,
@@ -38,7 +41,8 @@ const Services = () => {
         "Innovation workshops",
         "Problem solving collaborativo",
         "Strategic planning"
-      ]
+      ],
+      topColor: "linear-gradient(90deg, hsl(var(--orange)), hsl(var(--pink)))"
     },
     {
       icon: Sparkles,
@@ -50,41 +54,86 @@ const Services = () => {
         "Workshop team aziendali",
         "Consulenza dedicata",
         "Partnership strategiche"
-      ]
+      ],
+      topColor: "linear-gradient(90deg, hsl(var(--purple)), hsl(var(--cyan)))"
     }
   ];
 
   return (
-    <section id="servizi" className="py-20 px-4">
+    <section id="servizi" className="py-20 px-4 bg-black">
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold mb-6 gradient-text">Servizi</h2>
-        <p className="text-xl text-foreground/80 mb-12">
+        <motion.h2 
+          className="text-5xl font-bold mb-6 text-white text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Servizi
+        </motion.h2>
+        <motion.p 
+          className="text-xl text-muted-foreground mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
           Metodo, esperienza e creatività al servizio della tua crescita imprenditoriale
-        </p>
+        </motion.p>
 
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="glass-effect border-[hsl(var(--border))]">
-              <CardHeader>
-                <service.icon className="w-10 h-10 mb-4 text-[hsl(var(--cyan))]" />
-                <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
-                <p className="text-[hsl(var(--accent))] font-semibold">{service.subtitle}</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/70 mb-4">{service.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-foreground/60 flex items-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--cyan))] mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="outline" className="w-full border-[hsl(var(--cyan))] text-[hsl(var(--cyan))] hover:bg-[hsl(var(--cyan))] hover:text-[hsl(var(--primary))]">
-                  Scopri di più
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="glass-effect h-full overflow-hidden relative">
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1"
+                    style={{ background: service.topColor }}
+                  />
+                  <CardHeader className="mt-4">
+                    <div 
+                      className="p-3 rounded-xl inline-block mb-4"
+                      style={{
+                        background: "hsl(var(--purple) / 0.2)",
+                        border: "1px solid hsl(var(--purple) / 0.4)",
+                      }}
+                    >
+                      <service.icon className="w-8 h-8 text-[hsl(var(--purple))]" />
+                    </div>
+                    <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
+                    <p className="text-[hsl(var(--pink))] font-semibold">{service.subtitle}</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex items-center">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--purple))] mr-2" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button 
+                      className="w-full"
+                      style={{
+                        background: "linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--purple)))",
+                        border: "none",
+                      }}
+                    >
+                      Scopri di più
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

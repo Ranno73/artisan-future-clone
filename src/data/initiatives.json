@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Gnammo",
+    "icon": "Utensils",
+    "tagline": "Food Tech Pioneer",
+    "description": "Prima piattaforma italiana di social eating che ha rivoluzionato il modo di vivere il cibo come esperienza condivisa.",
+    "status": "Fondatore",
+    "year": "2012-2017",
+    "tags": ["Food Tech", "Social Platform", "Community"],
+    "glowColor": "purple"
+  },
+  {
+    "title": "MyOrango",
+    "icon": "Briefcase",
+    "tagline": "Smart Working Innovation",
+    "description": "Smart working e innovazione territoriale attraverso esperienze di workation in diverse località italiane.",
+    "status": "Attivo",
+    "year": "2021",
+    "tags": ["Smart Working", "Workation", "Innovation"],
+    "glowColor": "cyan"
+  },
+  {
+    "title": "Inpoi",
+    "icon": "Home",
+    "tagline": "AI Real Estate",
+    "description": "Valutazione immobiliare intelligente tramite algoritmi di intelligenza artificiale avanzata.",
+    "status": "Proptech",
+    "year": "Attivo",
+    "tags": ["AI", "Real Estate", "Proptech"],
+    "glowColor": "cyan"
+  },
+  {
+    "title": "Dreamago",
+    "icon": "Sparkles",
+    "tagline": "Creative Storytelling",
+    "description": "Piattaforma innovativa di storytelling generativo per creare narrazioni coinvolgenti.",
+    "status": "Creative",
+    "year": "Attivo",
+    "tags": ["Storytelling", "Creative", "Content"],
+    "glowColor": "purple"
+  },
+  {
+    "title": "Maison de Charme",
+    "icon": "Building",
+    "tagline": "Heritage Tourism",
+    "description": "Rete dedicata alle case e borghi storici italiani con focus sul turismo di qualità e autenticità.",
+    "status": "Turismo",
+    "year": "Attivo",
+    "tags": ["Tourism", "Heritage", "Hospitality"],
+    "glowColor": "purple"
+  },
+  {
+    "title": "Nemo Group",
+    "icon": "Database",
+    "tagline": "Data & Franchising",
+    "description": "Responsabile Commerciale Europa, portando expertise nel mondo dei dati e del franchising.",
+    "status": "Leadership",
+    "year": "Attivo",
+    "tags": ["Data", "Franchising", "B2B"],
+    "glowColor": "cyan"
+  }
+]
