@@ -20,11 +20,12 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <Badge 
-              className="glass-effect border-2 text-[hsl(var(--acid))] font-bold tracking-wider"
+              className="rounded-full px-4 py-2 font-bold tracking-wide hover-scale"
               style={{
-                borderColor: "hsl(var(--acid))",
-                boxShadow: "0 0 20px hsl(var(--acid)), inset 0 0 10px hsl(var(--acid) / 0.2)",
-                background: "hsl(var(--acid) / 0.1)",
+                background: "linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--purple)), hsl(var(--pink)))",
+                color: "hsl(var(--foreground))",
+                border: "1px solid hsl(var(--pink) / 0.4)",
+                boxShadow: "0 8px 30px hsl(var(--purple) / 0.25)",
               }}
             >
               <Sparkles className="w-4 h-4 mr-2" />
@@ -102,14 +103,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{
               background: "rgba(0,0,0,0.9)",
-              border: "2px solid #00ff00",
-              boxShadow: "0 0 40px #00ff00, inset 0 0 30px rgba(0,255,0,0.1)",
+              border: "2px solid hsl(var(--acid))",
+              boxShadow: "0 0 18px hsl(var(--acid) / 0.35), inset 0 0 12px hsl(var(--acid) / 0.1)",
             }}
           >
             <div 
               className="p-3 flex items-center gap-2"
               style={{
-                background: "linear-gradient(90deg, #00ffff, #ff00ff, #ff0099)",
+                background: "linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--purple)), hsl(var(--pink)))",
               }}
             >
               <div className="flex gap-1.5">
@@ -143,22 +144,22 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Badge 
-            className="border-2 text-[#00ffff] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
+            className="border-2 text-[hsl(var(--cyan))] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
             style={{
-              borderColor: "#00ffff",
-              boxShadow: "0 0 20px #00ffff, inset 0 0 10px rgba(0,255,255,0.2)",
-              background: "rgba(0,255,255,0.1)",
+              borderColor: "hsl(var(--cyan))",
+              boxShadow: "0 0 20px hsl(var(--cyan)), inset 0 0 10px hsl(var(--cyan) / 0.2)",
+              background: "hsl(var(--cyan) / 0.1)",
             }}
           >
             <Rocket className="w-5 h-5 mr-2" />
             STARTUP BUILDER
           </Badge>
           <Badge 
-            className="border-2 text-[#ff00ff] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
+            className="border-2 text-[hsl(var(--pink))] font-bold px-6 py-3 text-base hover:scale-110 transition-transform cursor-pointer"
             style={{
-              borderColor: "#ff00ff",
-              boxShadow: "0 0 20px #ff00ff, inset 0 0 10px rgba(255,0,255,0.2)",
-              background: "rgba(255,0,255,0.1)",
+              borderColor: "hsl(var(--pink))",
+              boxShadow: "0 0 20px hsl(var(--pink)), inset 0 0 10px hsl(var(--pink) / 0.2)",
+              background: "hsl(var(--pink) / 0.1)",
             }}
           >
             <Palette className="w-5 h-5 mr-2" />
